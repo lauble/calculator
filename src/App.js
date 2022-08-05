@@ -13,15 +13,15 @@ function App() {
     try {
       setDisplay(display + val);
     } catch (error) {
-      setErrorState(`Oops, something went wrong! '${error}'.`);
+      setErrorState(`Oops, something went wrong! '${error.message}'.`);
     }
   };
 
   const handleNegativeSign = () => {
     try {
-      setDisplay('-' + display);
+      setDisplay(display + '-');
     } catch (error) {
-      setErrorState(`Oops, something went wrong! '${error}'.`);
+      setErrorState(`Oops, something went wrong! '${error.message}'.`);
     }
   };
 
@@ -29,7 +29,7 @@ function App() {
     try {
       setDisplay(math.evaluate(display));
     } catch (error) {
-      setErrorState(`Oops, something went wrong! '${error}'.`);
+      setErrorState(`Oops, something went wrong! '${error.message}'.`);
     }
   };
 
@@ -43,9 +43,18 @@ function App() {
             fontSize: '22px',
             fontWeight: 'bold',
           }}
-        > Calculator
+        >
+          {' '}
+          Calculator
         </div>
-        <div style={{ color: 'red', textAlign: 'center', padding: '15px' }}>
+        <div
+          style={{
+            color: 'red',
+            textAlign: 'center',
+            fontSize: '15px',
+            padding: '15px',
+          }}
+        >
           {errorState ? errorState : ''}
         </div>
         <Display display={display}></Display>

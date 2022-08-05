@@ -6,12 +6,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .calc {
   display: flex;
   flex-direction: column;
-  padding-top: 200px;
   width: 350px;
 }
 
