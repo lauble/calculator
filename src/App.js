@@ -36,7 +36,17 @@ function App() {
   return (
     <div className="app">
       <div className="calc">
-        <div style={{ color: 'red', textAlign: 'center', padding: '20px' }}>
+        <div
+          style={{
+            color: 'rgb(222, 148, 70)',
+            textAlign: 'center',
+            fontSize: '22px',
+            fontWeight: 'bold',
+          }}
+        >
+          Simple Calculator built with React
+        </div>
+        <div style={{ color: 'red', textAlign: 'center', padding: '15px' }}>
           {errorState ? errorState : ''}
         </div>
         <Display display={display}></Display>
