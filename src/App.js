@@ -7,24 +7,48 @@ import * as math from 'mathjs';
 
 function App() {
   const [display, setDisplay] = useState('');
+  const [errorState, setErrorState] = useState(null);
+
   const addToDisplay = (val) => {
-    setDisplay(display + val);
-  }
+    try {
+      setDisplay(display + val);
+    } catch (error) {
+      setErrorState(`Oops, something went wrong! '${error}'.`);
+    }
+  };
 
   const handleNegativeSign = () => {
-    setDisplay('-' + display)
-  }
+    try {
+      setDisplay('-' + display);
+    } catch (error) {
+      setErrorState(`Oops, something went wrong! '${error}'.`);
+    }
+  };
 
   const calculate = () => {
-    setDisplay(math.evaluate(display))
-  }
+    try {
+      setDisplay(math.evaluate(display));
+    } catch (error) {
+      setErrorState(`Oops, something went wrong! '${error}'.`);
+    }
+  };
 
   return (
     <div className="app">
       <div className="calc">
+        <div style={{ color: 'red', textAlign: 'center', padding: '20px' }}>
+          {errorState ? errorState : ''}
+        </div>
         <Display display={display}></Display>
         <div className="row">
-          <Clear handleClear={() => setDisplay('')}>AC</Clear>
+          <Clear
+            handleClear={() => {
+              setDisplay('');
+              setErrorState('');
+            }}
+          >
+            AC
+          </Clear>
           <Button handleClick={handleNegativeSign}>+/-</Button>
           <Button handleClick={addToDisplay}>%</Button>
           <Button handleClick={addToDisplay}>/</Button>
