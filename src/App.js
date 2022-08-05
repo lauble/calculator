@@ -43,8 +43,7 @@ function App() {
             fontSize: '22px',
             fontWeight: 'bold',
           }}
-        >
-          Simple Calculator built with React
+        > Calculator
         </div>
         <div style={{ color: 'red', textAlign: 'center', padding: '15px' }}>
           {errorState ? errorState : ''}
@@ -83,8 +82,8 @@ function App() {
         </div>
         <div className="row">
           <Button handleClick={addToDisplay}>0</Button>
-          <Button handleClick={addToDisplay}></Button>
           <Button handleClick={addToDisplay}>.</Button>
+          <Button handleClick={addToDisplay}>^</Button>
           <Button handleClick={calculate}>=</Button>
         </div>
       </div>
